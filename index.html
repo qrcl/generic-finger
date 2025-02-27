@@ -16,9 +16,12 @@
             overflow: hidden; /* Prevents scrollbars */
         }
         img {
-            width: 100vw;  /* Takes full width */
-            height: 100vh; /* Takes full height */
-            object-fit: contain; /* Ensures it scales properly without being cut off */
+            width: 110vw;  /* Enlarges but with a safety buffer */
+            height: 110vh;
+            max-width: 130%;
+            max-height: 130%;
+            object-fit: contain; /* Ensures full finger visibility */
+            transform: translateY(-3vh); /* Moves it slightly higher */
         }
     </style>
 </head>

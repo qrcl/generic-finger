@@ -13,10 +13,10 @@
             width: 100vw;
             margin: 0;
             background-color: white;
-            overflow: hidden; /* Prevents scrollbars */
+            overflow: hidden;
         }
         img {
-            width: 100vw;  /* Full width in portrait */
+            width: 100vw;
             height: auto;
             max-width: 100%;
             max-height: 100%;
@@ -26,13 +26,23 @@
         /* Special rule for landscape mode */
         @media (orientation: landscape) {
             img {
-                height: 90vh; /* Reduce height slightly to prevent cutoff */
-                width: auto; /* Keeps aspect ratio */
+                height: 90vh;
+                width: auto;
             }
         }
     </style>
 </head>
 <body>
-    <img src="middle-finger-svgrepo-com.svg" alt="Middle Finger">
+    <img id="middleFinger" src="middle-finger-svgrepo-com.svg" alt="Middle Finger">
+
+    <script>
+        function adjustImage() {
+            let img = document.getElementById("middleFinger");
+            img.style.transform = "scale(1.001)"; // Forces a tiny update
+            setTimeout(() => img.style.transform = "scale(1)", 10); // Resets it
+        }
+
+        window.addEventListener("orientationchange", adjustImage);
+    </script>
 </body>
 </html>
